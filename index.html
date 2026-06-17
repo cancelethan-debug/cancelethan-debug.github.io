@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethan Cancel — Audio Visual & Media Technician</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:    #1A1A2E;
+      --accent:  #1F4E79;
+      --accent2: #2E86AB;
+      --light:   #F4F6F9;
+      --mid:     #E8EDF3;
+      --text:    #2C2C3A;
+      --muted:   #6B7280;
+      --white:   #FFFFFF;
+      --nav-h:   70px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent2); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+    }
+
+    nav ul a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--white); }
+
+    /* ── HERO ────────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--dark) 0%, #0D2137 60%, #163352 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-h) + 60px) 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(46,134,171,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; max-width: 720px; }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(46,134,171,0.18);
+      border: 1px solid rgba(46,134,171,0.4);
+      color: var(--accent2);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 99px;
+      margin-bottom: 28px;
+    }
+
+    .hero-name {
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255,255,255,0.65);
+      font-style: italic;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--accent2);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(46,134,171,0.35);
+    }
+
+    .btn-primary:hover { box-shadow: 0 6px 24px rgba(46,134,171,0.5); }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.35);
+      color: var(--white);
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
+
+    /* ── SECTIONS ────────────────────────────────────────────────────── */
+    section {
+      padding: 96px 24px;
+      scroll-margin-top: var(--nav-h);
+    }
+
+    section:nth-child(even) { background: var(--light); }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid var(--mid);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 56px;
+      height: 3px;
+      background: var(--accent2);
+      border-radius: 2px;
+    }
+
+    /* ── ABOUT ───────────────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text);
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--mid);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── EXPERIENCE ──────────────────────────────────────────────────── */
+    .job {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0 40px;
+      margin-bottom: 52px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--mid);
+      position: relative;
+    }
+
+    .job:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .job-meta {
+      padding-top: 4px;
+    }
+
+    .job-dates {
+      font-size: 0.82rem;
+      color: var(--accent2);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .job-company {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .job-location {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .job-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .job-type {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 99px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .job-type.paid { background: rgba(31,78,121,0.1); color: var(--accent); }
+    .job-type.volunteer { background: rgba(46,134,171,0.1); color: var(--accent2); }
+
+    .job-bullets {
+      list-style: none;
+    }
+
+    .job-bullets li {
+      padding: 5px 0 5px 18px;
+      position: relative;
+      font-size: 0.97rem;
+      color: var(--text);
+    }
+
+    .job-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+    }
+
+    /* ── SKILLS ──────────────────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--mid);
+      border-radius: 12px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+    }
+
+    .skill-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .skill-icon svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .skill-category {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      font-size: 0.8rem;
+      background: var(--light);
+      color: var(--text);
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid var(--mid);
+    }
+
+    /* ── EQUIPMENT SHOWCASE ─────────────────────────────────────────── */
+    .equip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .equip-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .equip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+    }
+
+    .equip-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .equip-card:hover img { transform: scale(1.05); }
+
+    .equip-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.88) 0%, rgba(26,26,46,0.05) 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px 20px;
+    }
+
+    .equip-tag {
+      font-size: 0.67rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .equip-name {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+    }
+
+    @media (max-width: 768px) {
+      .equip-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .equip-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── CONTACT ─────────────────────────────────────────────────────── */
+    #contact { background: var(--dark); }
+
+    #contact .section-label { color: var(--accent2); }
+
+    #contact .section-title {
+      color: var(--white);
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
+
+    #contact .section-title::after { background: var(--accent2); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-intro {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+
+    .contact-items { display: flex; flex-direction: column; gap: 20px; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-dot {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(46,134,171,0.18);
+      border: 1px solid rgba(46,134,171,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-dot svg { width: 18px; height: 18px; fill: none; stroke: var(--accent2); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .contact-item-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 2px;
+    }
+
+    .contact-item-value {
+      color: var(--white);
+      font-size: 0.97rem;
+      font-weight: 500;
+    }
+
+    .contact-item-value a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .contact-item-value a:hover { color: var(--accent2); }
+
+    .contact-cta {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 40px 36px;
+    }
+
+    .contact-cta h3 {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-cta p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────── */
+    footer {
+      background: #111122;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.82rem;
+    }
+
+    /* ── HERO PHOTOS ─────────────────────────────────────────────────── */
+    .hero-photos {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-photo {
+      position: absolute;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,255,255,0.07);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      display: block;
+    }
+
+    .hero-photo-1 { width: 210px; height: 145px; left: 3%;  top: 26%; transform: rotate(-5deg); }
+    .hero-photo-2 { width: 175px; height: 125px; left: 6%;  top: 55%; transform: rotate(4deg);  }
+    .hero-photo-3 { width: 210px; height: 145px; right: 3%; top: 24%; transform: rotate(5deg);  }
+    .hero-photo-4 { width: 175px; height: 125px; right: 6%; top: 54%; transform: rotate(-4deg); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero-photo { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      nav ul { gap: 20px; }
+      .about-grid,
+      .job,
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .job-meta { padding-top: 0; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      nav ul { display: none; }
+      .about-stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ────────────────────────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="#hero">Ethan <span>Cancel</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#equipment">Equipment</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────── -->
+<section id="hero">
+
+  <!-- Floating equipment photos around name -->
+  <div class="hero-photos">
+    <div class="hero-photo hero-photo-1">
+      <img src="https://images.unsplash.com/photo-1618609377864-68609b857e90?auto=format&fit=crop&w=420&q=70" alt="" />
+    </div>
+    <div class="hero-photo hero-photo-2">
+      <img src="https://images.unsplash.com/photo-1534840641466-b1cdb8fb155e?auto=format&fit=crop&w=360&q=70" alt="" />
+    </div>
+    <div class="hero-photo hero-photo-3">
+      <img src="https://images.unsplash.com/photo-1512025316832-8658f04f8a83?auto=format&fit=crop&w=420&q=70" alt="" />
+    </div>
+    <div class="hero-photo hero-photo-4">
+      <img src="https://images.unsplash.com/photo-1611784728558-6c7d9b409cdf?auto=format&fit=crop&w=360&q=70" alt="" />
+    </div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-tag">Brooklyn, NY</div>
+    <h1 class="hero-name">Ethan Cancel</h1>
+    <p class="hero-title">Audio Visual &amp; Media Technician</p>
+    <div class="hero-actions">
+      <a href="#experience" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ─────────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">The Person Behind the Board</h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm an Audio Visual &amp; Media Technician based in Brooklyn, NY with over six years of hands-on experience running in-house AV production for weekly public events and live broadcasts.
+        </p>
+        <p>
+          From mixing live sound and operating cameras to managing multi-platform livestream pipelines and providing on-site IT support, I bring a calm, detail-oriented approach to every production environment I work in.
+        </p>
+        <p>
+          I've grown up in this work — starting as a volunteer and building real-world expertise in audio, video, and live event technology along the way.
+        </p>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">6+</div>
+          <div class="stat-desc">Years in AV</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">300+</div>
+          <div class="stat-desc">Live Events Run</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4</div>
+          <div class="stat-desc">Organizations Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">BK</div>
+          <div class="stat-desc">Brooklyn Native</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ─────────────────────────────────────────────────────── -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Work Experience</p>
+    <h2 class="section-title">Where I've Made an Impact</h2>
+
+    <!-- Calvary NYC -->
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-dates">Mar. 2020 – Present</div>
+        <div class="job-company">Calvary NYC</div>
+        <div class="job-location">Brooklyn, NY</div>
+      </div>
+      <div class="job-body">
+        <div class="job-title">Media &amp; Technology Director</div>
+        <span class="job-type paid">Full-Time</span>
+        <ul class="job-bullets">
+          <li>Directed end-to-end in-house AV production for weekly public events — sole technician responsible for audio, video, and broadcast systems across a 6-year tenure</li>
+          <li>Mixed front-of-house live sound on Midas M32 digital console for live audiences of 40–60, maintaining consistent audio quality across weekly and special events</li>
+          <li>Operated multi-camera production using Blackmagic ATEM Mini and ATEM Software Control — live switching, directing cameras, and compositing for on-site and streamed output</li>
+          <li>Ran OBS Studio and YoloBox livestream pipelines, delivering broadcast output to remote audiences simultaneously with weekly on-site events</li>
+          <li>Managed full ProPresenter 7 workflow — building presentation slides and media sequences with precise live transitions</li>
+          <li>Trained and mentored incoming AV technicians on equipment operation, signal flow, and live production workflows</li>
+          <li>Owned maintenance and troubleshooting of all AV infrastructure including soundboards, cameras, microphones, and video equipment</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Chosen People Ministries -->
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-dates">Jun. 2023 – Aug. 2025</div>
+        <div class="job-company">Chosen People Ministries</div>
+        <div class="job-location">New York, NY</div>
+      </div>
+      <div class="job-body">
+        <div class="job-title">AV Systems Technician &amp; IT Support</div>
+        <span class="job-type paid">Contract</span>
+        <ul class="job-bullets">
+          <li>Deployed and operated complete on-site AV systems for recurring public events — managing sound reinforcement, projection, and video signal routing</li>
+          <li>Provided Tier 1–2 IT support for staff and event operations, resolving hardware, software, and network issues on-site</li>
+          <li>Delivered consistent technical execution for live presentations and programs, supporting both staff workflows and event attendees</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mustard Seeds Soccer -->
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-dates">2022 – 2024</div>
+        <div class="job-company">Mustard Seeds Soccer</div>
+        <div class="job-location">Brooklyn, NY</div>
+      </div>
+      <div class="job-body">
+        <div class="job-title">Volunteer Soccer Coach</div>
+        <span class="job-type volunteer">Volunteer</span>
+        <ul class="job-bullets">
+          <li>Coached youth soccer players during weekly Saturday sessions and one weekday afternoon practice per week</li>
+          <li>Developed training drills, provided individual feedback, and fostered teamwork and sportsmanship</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SKILLS ─────────────────────────────────────────────────────────── -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Skills &amp; Tools</p>
+    <h2 class="section-title">What I Bring to the Table</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div class="skill-category">Audio</div>
+        <h3>Live Sound Mixing</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Midas M32</span>
+          <span class="skill-tag">Front-of-House</span>
+          <span class="skill-tag">Mic Setup</span>
+          <span class="skill-tag">Signal Routing</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="skill-category">Software</div>
+        <h3>AV Software</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">OBS Studio</span>
+          <span class="skill-tag">ProPresenter 7</span>
+          <span class="skill-tag">ATEM Software Control</span>
+          <span class="skill-tag">YoloBox</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <div class="skill-category">Video Production</div>
+        <h3>Camera &amp; Video Switching</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">ATEM Mini</span>
+          <span class="skill-tag">Multi-Camera</span>
+          <span class="skill-tag">Live Compositing</span>
+          <span class="skill-tag">Livestreaming</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 12h5"/></svg>
+        </div>
+        <div class="skill-category">IT</div>
+        <h3>IT Support</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Hardware Troubleshooting</span>
+          <span class="skill-tag">Network Support</span>
+          <span class="skill-tag">AV Maintenance</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="skill-category">Languages</div>
+        <h3>Communication</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">English (Native)</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="skill-category">Strengths</div>
+        <h3>Professional Qualities</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Detail-Oriented</span>
+          <span class="skill-tag">Calm Under Pressure</span>
+          <span class="skill-tag">Team Player</span>
+          <span class="skill-tag">Quick Learner</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── EQUIPMENT SHOWCASE ──────────────────────────────────────────────── -->
+<section id="equipment">
+  <div class="container">
+    <p class="section-label">Hardware &amp; Software</p>
+    <h2 class="section-title">Tools of the Trade</h2>
+
+    <div class="equip-grid">
+
+      <div class="equip-card">
+        <img src="https://images.unsplash.com/photo-1618609377864-68609b857e90?auto=format&fit=crop&w=600&q=80" alt="Midas M32 digital audio mixing console" loading="lazy" />
+        <div class="equip-overlay">
+          <div class="equip-tag">FOH Audio</div>
+          <div class="equip-name">Midas M32 Digital Console</div>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <img src="https://images.unsplash.com/photo-1512025316832-8658f04f8a83?auto=format&fit=crop&w=600&q=80" alt="Multiple video cameras on tripods for live production" loading="lazy" />
+        <div class="equip-overlay">
+          <div class="equip-tag">Camera Operation</div>
+          <div class="equip-name">Multi-Camera Direction</div>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <img src="https://images.unsplash.com/photo-1619099619226-f96e319e3732?auto=format&fit=crop&w=600&q=80" alt="Professional video camera for live events" loading="lazy" />
+        <div class="equip-overlay">
+          <div class="equip-tag">Video Switching</div>
+          <div class="equip-name">Blackmagic ATEM Mini</div>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <img src="https://images.unsplash.com/photo-1534840641466-b1cdb8fb155e?auto=format&fit=crop&w=600&q=80" alt="Live production operator at mixing console" loading="lazy" />
+        <div class="equip-overlay">
+          <div class="equip-tag">Livestream Production</div>
+          <div class="equip-name">OBS Studio &amp; YoloBox</div>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <img src="https://images.unsplash.com/photo-1566612453429-50faafea3e5f?auto=format&fit=crop&w=600&q=80" alt="Sound mixing console for presentations" loading="lazy" />
+        <div class="equip-overlay">
+          <div class="equip-tag">Presentation Software</div>
+          <div class="equip-name">ProPresenter 7</div>
+        </div>
+      </div>
+
+      <div class="equip-card">
+        <img src="https://images.unsplash.com/photo-1490971588422-52f6262a237a?auto=format&fit=crop&w=600&q=80" alt="Professional video camera low angle" loading="lazy" />
+        <div class="equip-overlay">
+          <div class="equip-tag">AV Infrastructure</div>
+          <div class="equip-name">End-to-End System Integration</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Let's Connect</h2>
+
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">
+          Whether you're looking for an experienced AV technician, need reliable IT support, or want to discuss a live production project — I'd love to hear from you.
+        </p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-dot">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.8 19.8 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.11a16 16 0 0 0 7 7l.97-.97a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value"><a href="tel:7185783313">(718) 578-3313</a></div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-dot">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value"><a href="mailto:ethan@calvary.nyc">ethan@calvary.nyc</a></div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-dot">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Brooklyn, NY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-cta">
+        <h3>Available for Opportunities</h3>
+        <p>Open to full-time, part-time, and freelance AV and media production roles in the NYC area.</p>
+        <a href="mailto:ethan@calvary.nyc" class="btn btn-primary">Send Me an Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2026 Ethan Cancel &mdash; Audio Visual &amp; Media Technician &mdash; Brooklyn, NY</p>
+</footer>
+
+</body>
+</html>
