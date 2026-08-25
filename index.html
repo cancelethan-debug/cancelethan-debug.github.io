@@ -156,6 +156,14 @@
 
     .btn-outline:hover { border-color: rgba(255,255,255,0.7); }
 
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(46,134,171,0.5);
+    }
+
+    .btn-secondary:hover { background: rgba(46,134,171,0.12); }
+
     /* ── SECTIONS ────────────────────────────────────────────────────── */
     section {
       padding: 96px 24px;
@@ -532,6 +540,12 @@
 
     .contact-item-value a:hover { color: var(--accent2); }
 
+    .contact-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
     .contact-cta {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
@@ -549,6 +563,11 @@
       color: rgba(255,255,255,0.6);
       margin-bottom: 28px;
       font-size: 0.97rem;
+    }
+
+    .contact-cta.secondary {
+      background: rgba(46,134,171,0.08);
+      border-color: rgba(46,134,171,0.3);
     }
 
     /* ── FOOTER ──────────────────────────────────────────────────────── */
@@ -853,17 +872,6 @@
 
       <div class="skill-card">
         <div class="skill-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="skill-category">Languages</div>
-        <h3>Communication</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">English (Native)</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">
           <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
         <div class="skill-category">Strengths</div>
@@ -985,24 +993,32 @@
         </div>
       </div>
 
-      <div class="contact-cta">
-        <h3>Available for Opportunities</h3>
-        <p>Open to full-time, part-time, and freelance AV and media production roles in the NYC area.</p>
-        <a href="mailto:ethan@calvary.nyc" class="btn btn-primary">Send Me an Email</a>
+      <div class="contact-ctas">
+        <div class="contact-cta">
+          <h3>Available for Opportunities</h3>
+          <p>Open to full-time, part-time, and freelance AV and media production roles in the NYC area.</p>
+          <a href="mailto:ethan@calvary.nyc" class="btn btn-primary">Send Me an Email</a>
+        </div>
+
+        <div class="contact-cta secondary">
+          <h3>Building a Church Website?</h3>
+          <p>I also design and build websites for churches and ministries. Start the intake form and I'll follow up with next steps.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSer2kFW2-nYy9ZYvGqSKCa9GW-bo93S8P2CKTTtxT2_Res-5w/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-secondary">Start the Intake Form ↗</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── BUILT NOTE ────────────────────────────────────────────────────── -->
-<div class="built-note">
-  <p>How I built this: designed and written with Claude, deployed via GitHub, with the domain registered through GoDaddy &mdash; the same detail-oriented, tech-forward approach I bring to every AV production.</p>
-</div>
-
 <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
 <footer>
   <p>&copy; 2026 Ethan Cancel &mdash; Audio Visual &amp; Media Technician &mdash; Brooklyn, NY</p>
 </footer>
+
+<!-- ── BUILT NOTE ────────────────────────────────────────────────────── -->
+<div class="built-note">
+  <p>How I built this: designed and written with Claude, deployed via GitHub, with the domain registered through GoDaddy &mdash; the same detail-oriented, tech-forward approach I bring to every AV production.</p>
+</div>
 
 </body>
 </html>
